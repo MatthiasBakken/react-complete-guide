@@ -49,8 +49,8 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.persons.length)
-    console.log(handler)
+    // console.log(this.state.persons.length)
+    // console.log(handler)
     let persons = null;
     let handler = this.togglePersonsHandler;
     let buttonName = "Show Names"
@@ -61,9 +61,9 @@ class App extends Component {
       { id: Math.random(100) * Math.random(1000), name: "Stephanie", age: 26 }
     ]
 
-    this.state.showPersons ? buttonName = "Hide Names" : "Show Names";
+    this.state.showPersons ? buttonName = "Hide Names" : buttonName = "Show Names";
 
-    !this.state.persons.length ? buttonName = "Create Names" : null;
+    !this.state.persons.length ? buttonName = "Create Names" : this.state.showPersons ? buttonName = "Hide Names" : buttonName = "Show Names";
 
     !this.state.persons.length ? handler = (() => this.createNamesHandler(people)) : handler = this.togglePersonsHandler;
 
