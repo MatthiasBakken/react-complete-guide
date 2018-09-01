@@ -9,6 +9,8 @@ button {
   color: white;
   border-radius: 1rem;
   border: none;
+  box-shadow: 0 4px 8px rgb(60, 174, 250);
+  text-shadow: 0 2px 4px rgb(60, 174, 250);
 }
 
 button:hover {
