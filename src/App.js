@@ -105,7 +105,11 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>Hi, I'm a React App</h1>
+        <h1
+          className={this.state.persons.length === 1 ? `one-person` : this.state.persons.length < 1 ? `no-people` : null}  
+        >
+          {this.state.persons.length !== 1 ? `There are ${this.state.persons.length} people in the list` : `There is 1 person in the list`}
+        </h1>
         <button
           onClick={handler}
         >

@@ -22,3 +22,11 @@ button:hover {
 button:focus {
   outline: none;
 }
+
+.one-person {
+  color: orange;
+}
+
+.no-people {
+  color: red;
+}
