@@ -17,6 +17,7 @@ button:hover {
   background-color: rgb(60, 174, 250);
   box-shadow: 0 4px 8px gray;
   text-shadow: 0 2px 4px black;
+  cursor: pointer;
 }
 
 button:focus {

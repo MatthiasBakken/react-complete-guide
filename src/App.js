@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+// import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 import Person from './Person/Person';
 import './App.css';
 
@@ -74,30 +75,17 @@ class App extends Component {
       >
         {this.state.persons.map((person, index) => {
           return (
-            <Person
-              key={person.age + person.id}
-              click={() => this.deletePersonHandler(index)}
-              name={person.name}
-              age={person.age}
-              changed={(event) => this.newNameInputHandler(event, person.id)}
-            />
+            // <ErrorBoundary key={person.age + person.id}>
+              <Person
+                key={person.age + person.id}  
+                click={() => this.deletePersonHandler(index)}
+                name={person.name}
+                age={person.age}
+                changed={(event) => this.newNameInputHandler(event, person.id)}
+              />
+            // </ErrorBoundary>
           )
         })}
-        {/* <Person
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age}
-          click={this.handleChangeNames.bind(this, "Max!")}
-        />
-        <Person
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age}
-          changed={this.newNameInputHandler}
-        >My Hobbies: Racing
-          </Person>
-        <Person
-          name={this.state.persons[2].name}
-          age={this.state.persons[2].age}
-        /> */}
       </div>)
     } else {
       persons = null;

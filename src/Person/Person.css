@@ -22,7 +22,10 @@
 
 .Person p {
   margin: 0.3rem;
+}
 
+.Person p:hover {
+  cursor: pointer;
 }
 
 .Person input {
