@@ -22,11 +22,23 @@ class App extends Component {
     })
   }
 
+  newNameInputHandler = (event) => {
+    this.setState({
+      persons: [
+        { name: "Max", age: 29 },
+        { name: event.target.value, age: 30 },
+        { name: "Steph", age: 27 }
+      ]
+    })
+  }
+
+
+
   render() {
     return (
       <div className="App">
         <h1>Hi, I'm a React App</h1>
-        <button onClick={() => this.handleChangeNames("Maxi")} >Change Names</button>
+        <button onClick={() => this.handleChangeNames("Maximilian")} >Change Names</button>
         <Person
           name={this.state.persons[0].name}
           age={this.state.persons[0].age}
@@ -35,13 +47,12 @@ class App extends Component {
         <Person
           name={this.state.persons[1].name}
           age={this.state.persons[1].age}
-          click={this.handleChangeNames.bind(this, "Manu!")}
+          changed={this.newNameInputHandler}
         >My Hobbies: Racing
         </Person>
         <Person
           name={this.state.persons[2].name}
           age={this.state.persons[2].age}
-          click={this.handleChangeNames.bind(this, "Stephanie!")}
         />
       </div>
     );
