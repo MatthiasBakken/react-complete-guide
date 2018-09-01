@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+
+button {
+  padding: 1rem;
+  font-size: 1rem;
+  background-color: gray;
+  color: white;
+  border-radius: 1rem;
+  border: none;
+}
+
+button:hover {
+  background-color: rgb(60, 174, 250);
+  box-shadow: 0 4px 8px gray;
+  text-shadow: 0 2px 4px black;
+}

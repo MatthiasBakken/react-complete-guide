@@ -39,21 +39,23 @@ class App extends Component {
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         <button onClick={() => this.handleChangeNames("Maximilian")} >Change Names</button>
-        <Person
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age}
-          click={this.handleChangeNames.bind(this, "Max!")}
-        />
-        <Person
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age}
-          changed={this.newNameInputHandler}
-        >My Hobbies: Racing
-        </Person>
-        <Person
-          name={this.state.persons[2].name}
-          age={this.state.persons[2].age}
-        />
+        <div className="Person-Container">
+          <Person
+            name={this.state.persons[0].name}
+            age={this.state.persons[0].age}
+            click={this.handleChangeNames.bind(this, "Max!")}
+          />
+          <Person
+            name={this.state.persons[1].name}
+            age={this.state.persons[1].age}
+            changed={this.newNameInputHandler}
+          >My Hobbies: Racing
+          </Person>
+          <Person
+            name={this.state.persons[2].name}
+            age={this.state.persons[2].age}
+          />
+        </div>  
       </div>
     );
   }
