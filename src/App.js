@@ -40,14 +40,32 @@ class App extends Component {
 
   togglePersonsHandler = () => {
     this.setState({ showPersons: !this.state.showPersons })
+  };
+
+  createNamesHandler = (persons) => {
+    this.setState({
+      persons: persons
+    })
   }
 
   render() {
-
+    console.log(this.state.persons.length)
+    console.log(handler)
     let persons = null;
+    let handler = this.togglePersonsHandler;
     let buttonName = "Show Names"
 
+    const people = [
+      { id: Math.random(100) * Math.random(1000), name: "Max", age: 28 },
+      { id: Math.random(100) * Math.random(1000), name: "Manu", age: 29 },
+      { id: Math.random(100) * Math.random(1000), name: "Stephanie", age: 26 }
+    ]
+
     this.state.showPersons ? buttonName = "Hide Names" : "Show Names";
+
+    !this.state.persons.length ? buttonName = "Create Names" : null;
+
+    !this.state.persons.length ? handler = (() => this.createNamesHandler(people)) : handler = this.togglePersonsHandler;
 
     if (this.state.showPersons) {
       persons = 
@@ -89,7 +107,7 @@ class App extends Component {
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         <button
-          onClick={this.togglePersonsHandler}
+          onClick={handler}
         >
           {buttonName}
         </button>
