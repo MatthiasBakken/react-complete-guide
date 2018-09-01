@@ -16,3 +16,7 @@ button:hover {
   box-shadow: 0 4px 8px gray;
   text-shadow: 0 2px 4px black;
 }
+
+button:focus {
+  outline: none;
+}

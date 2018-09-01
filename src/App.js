@@ -9,7 +9,8 @@ class App extends Component {
       { name: "Max", age: 28 },
       { name: "Manu", age: 29 },
       { name: "Stephanie", age: 26 }
-    ]
+    ],
+    showPersons: false
   }
 
   handleChangeNames = (newName) => {
@@ -32,14 +33,25 @@ class App extends Component {
     })
   }
 
+  togglePersonsHandler = () => {
+    this.setState({ showPersons: !this.state.showPersons })
+  }
+
 
 
   render() {
     return (
       <div className="App">
         <h1>Hi, I'm a React App</h1>
-        <button onClick={() => this.handleChangeNames("Maximilian")} >Change Names</button>
-        <div className="Person-Container">
+        <button
+          onClick={this.togglePersonsHandler}
+        >
+          Show Names
+        </button>
+        { this.state.showPersons ? 
+        <div
+          className="Person-Container"
+        >
           <Person
             name={this.state.persons[0].name}
             age={this.state.persons[0].age}
@@ -55,7 +67,8 @@ class App extends Component {
             name={this.state.persons[2].name}
             age={this.state.persons[2].age}
           />
-        </div>  
+        </div> : null
+        } 
       </div>
     );
   }
