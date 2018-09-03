@@ -5,6 +5,8 @@ import Persons from '../Components/Persons/Persons';
 import Cockpit from '../Components/Cockpit/Cockpit';
 import './App.css';
 
+export const AuthContext = React.createContext(false);
+
 class App extends Component {
   state = {
     persons: [
@@ -12,7 +14,8 @@ class App extends Component {
       { id: Math.random(100) * Math.random(1000), name: "Manu", age: 29 },
       { id: Math.random(100) * Math.random(1000), name: "Stephanie", age: 26 }
     ],
-    showPersons: false
+    showPersons: false,
+    authenticated: false
   }
 
   deletePersonHandler = (personIndex) => {
@@ -48,6 +51,10 @@ class App extends Component {
     this.setState({
       persons: persons
     })
+  }
+
+  loginHandler = () => {
+    this.setState({ authenticated: !this.state.authenticated })
   }
 
   render() {
@@ -86,8 +93,15 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Cockpit handler={handler} buttonName={buttonName} persons={this.state.persons}/>
-        {persons}
+        <Cockpit
+          handler={handler}
+          buttonName={buttonName}
+          login={this.loginHandler}
+          persons={this.state.persons}
+        />
+        <AuthContext.Provider value={this.state.authenticated}>
+          {persons}
+        </AuthContext.Provider>
       </div>
     );
   }

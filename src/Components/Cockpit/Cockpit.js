@@ -13,6 +13,7 @@ const Cockpit = (props) => {
       >
         {props.buttonName}
       </button>
+      <button onClick={props.login} >Login</button>
     </div>
   )
 }
