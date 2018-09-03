@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 // import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
-import Person from '../Components/Persons/Person/Person';
+import Persons from '../Components/Persons/Persons';
+import Cockpit from '../Components/Cockpit/Cockpit';
 import './App.css';
 
 class App extends Component {
@@ -73,19 +74,11 @@ class App extends Component {
       (<div
         className="Person-Container"
       >
-        {this.state.persons.map((person, index) => {
-          return (
-            // <ErrorBoundary key={person.age + person.id}>
-              <Person
-                key={person.age + person.id}  
-                click={() => this.deletePersonHandler(index)}
-                name={person.name}
-                age={person.age}
-                changed={(event) => this.newNameInputHandler(event, person.id)}
-              />
-            // </ErrorBoundary>
-          )
-        })}
+        <Persons
+          persons={this.state.persons}
+          clicked={this.deletePersonHandler}
+          changed={this.newNameInputHandler}
+        />
       </div>)
     } else {
       persons = null;
@@ -93,16 +86,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1
-          className={this.state.persons.length === 1 ? `one-person` : this.state.persons.length < 1 ? `no-people` : null}  
-        >
-          {this.state.persons.length !== 1 ? `There are ${this.state.persons.length} people in the list` : `There is 1 person in the list`}
-        </h1>
-        <button
-          onClick={handler}
-        >
-          {buttonName}
-        </button>
+        <Cockpit handler={handler} buttonName={buttonName} persons={this.state.persons}/>
         {persons}
       </div>
     );
